@@ -1,8 +1,6 @@
 package parser;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class ParserResult {
     private boolean success=false;
@@ -25,6 +23,16 @@ public class ParserResult {
         this.errMsg = errMsg;
     }
 
+    public List<ColumnToken> getTokenList() {
+        List<ColumnToken> tokenList=new ArrayList<>();
+        Iterator<ColumnToken> tokenIterator=tokens.iterator();
+        while (tokenIterator.hasNext()){
+            ColumnToken columnExpression=tokenIterator.next();
+            tokenList.add(columnExpression);
+        }
+        return tokenList;
+    }
+
     public Set<ColumnToken> getTokens() {
         return tokens;
     }
@@ -36,9 +44,7 @@ public class ParserResult {
     @Override
     public String toString(){
         StringBuffer sb=new StringBuffer();
-        Iterator<ColumnToken> tokenIterator=tokens.iterator();
-        while (tokenIterator.hasNext()){
-            ColumnToken columnExpression=tokenIterator.next();
+        for (ColumnToken columnExpression : tokens){
             sb.append(columnExpression.toString()+System.lineSeparator());
         }
         return sb.toString();

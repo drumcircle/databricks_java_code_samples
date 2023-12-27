@@ -3,10 +3,27 @@ package parser;
 import java.util.Objects;
 
 public class ColumnToken {
-    public String schema;
-    public String table;
-    public String column;
-    public String expr;
+    private String schema;
+    private String table;
+    private String column;
+    private String expr;
+
+
+    public String getSchema() {
+        return schema;
+    }
+
+    public String getTable() {
+        return table;
+    }
+
+    public String getColumn() {
+        return column;
+    }
+
+    public String getExpr() {
+        return expr;
+    }
 
     public static ColumnToken withTable(String schema, String table) {
         ColumnToken ce=new ColumnToken();

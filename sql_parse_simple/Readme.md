@@ -9,3 +9,5 @@ For a new trial or production version, download here:
 https://sqlparser.com/download.php
 
 James @ Gudusoft is a genius.
+
+Note: Databricks 14.x support java version 52.0 (aka 1.8)
